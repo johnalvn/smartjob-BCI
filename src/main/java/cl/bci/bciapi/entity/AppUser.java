@@ -3,16 +3,20 @@ package cl.bci.bciapi.entity;
 import jakarta.persistence.*;
 
 import jakarta.validation.constraints.Email;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import java.time.LocalDateTime;
-import org.hibernate.annotations.processing.Pattern;
+
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 import java.util.UUID;
 
 @Entity
 @Data
-public class User {
+@NoArgsConstructor
+@AllArgsConstructor
+public class AppUser {
 
     @Id
     private UUID id;
