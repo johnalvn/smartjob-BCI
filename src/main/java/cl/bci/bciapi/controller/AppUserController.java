@@ -48,5 +48,4 @@ public class AppUserController {
         return new ResponseEntity<>(AppUserMapper.INSTANCE.toAppUserDTO(savedUser), HttpStatus.CREATED);
     }
 
-
 }
