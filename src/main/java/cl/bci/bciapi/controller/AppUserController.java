@@ -42,7 +42,7 @@ public class AppUserController {
     }
 
     @PostMapping("/registro")
-    public ResponseEntity<?> registerUser(@Valid @RequestBody AppUser user) throws JsonProcessingException {
+    public ResponseEntity<?> registerUser( @RequestBody AppUser user) throws JsonProcessingException {
         if (userRepository.findByEmail(user.getEmail()).isPresent()) {
             return new ResponseEntity<>(Collections.singletonMap("mensaje", "El correo ya registrado"), HttpStatus.BAD_REQUEST);
         }
