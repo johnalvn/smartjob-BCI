@@ -1,8 +1,10 @@
 package cl.bci.bciapi.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import java.time.LocalDateTime;
@@ -23,6 +25,11 @@ public class AppUser {
 
     private String name;
 
+//    @Pattern(regexp = "[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\."
+//            + "[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*@"
+//            + "(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z0-9]"
+//            + "(?:[A-Za-z0-9-]*[A-Za-z0-9])?",
+//            message = "{invalid.email}")
     @Email(message = "Formato de correo inválido")
     @Column(unique = true)
     private String email;
