@@ -13,7 +13,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
             .authorizeHttpRequests((authz) -> authz
-                    .requestMatchers("/api/registro").permitAll()
+                    .requestMatchers("/api/users").permitAll()
                     .anyRequest().authenticated()
             );
         return http.build();
