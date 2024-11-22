@@ -17,7 +17,7 @@ public class UserValidator {
     @Value("${user.validator.password.regexp}")
     private String passwdRegex;
 
-    @Value("${user.validator.name.lenght}")
+    @Value("${user.validator.name.length}")
     private Integer nameLength;
 
     public List<String> validate(AppUser user) {
