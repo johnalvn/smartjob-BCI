@@ -48,6 +48,4 @@ public class AppUserServiceImpl implements AppUserService {
         return userRepository.save(appUser);
     }
 
-
-
 }
