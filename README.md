@@ -16,19 +16,21 @@ A simple API for register users Using Java 17 and Spring
 - Use gradle as build system
 
 
-
 ## Run Locally
+- No databases scripts needed since DB will create automatically
+- Import the collection Json included in the repo
+- Access to Swagger doc : http://localhost:8080/swagger-ui/index.html
 
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/johnalvn/smartjob-BCI.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd smartjob-BCI
 ```
 
 Start the server (if you have Java 17 installed)

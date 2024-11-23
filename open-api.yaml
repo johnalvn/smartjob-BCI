@@ -1,0 +1,49 @@
+openapi: 3.0.0
+info:
+  title: smartjob
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+paths:
+  /api/users:
+    post:
+      tags:
+        - default
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: John
+                password: P@ssw0rd
+                email: john2@bci.cl
+                phones:
+                  - number: '534523534'
+                    countryCode: '57'
+                    cityCode: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    get:
+      tags:
+        - default
+      summary: GetAll
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/users/14ff56c2-4a94-401b-a117-dfaf6ad69c9d:
+    get:
+      tags:
+        - default
+      summary: GetById
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}

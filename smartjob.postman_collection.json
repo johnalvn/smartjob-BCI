@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "8f95edf1-c5e0-46db-9d4a-6120911adde3",
+		"name": "smartjob",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "152428",
+		"_collection_link": "https://blue-equinox-220426.postman.co/workspace/BCI-APPUSER-API~1a4e395f-4691-46ef-9b11-7296bf9c5a0b/collection/152428-8f95edf1-c5e0-46db-9d4a-6120911adde3?action=share&source=collection_link&creator=152428"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"John\",\n    \"password\": \"P@ssw0rd\",\n    \"email\": \"john2@bci.cl\",\n    \"phones\": [\n        {\n            \"number\": \"534523534\",\n            \"countryCode\": \"57\",\n            \"cityCode\": \"1\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/users/14ff56c2-4a94-401b-a117-dfaf6ad69c9d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users",
+						"14ff56c2-4a94-401b-a117-dfaf6ad69c9d"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

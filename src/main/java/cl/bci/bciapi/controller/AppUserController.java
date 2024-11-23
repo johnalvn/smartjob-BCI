@@ -2,6 +2,8 @@ package cl.bci.bciapi.controller;
 
 import cl.bci.bciapi.entity.AppUser;
 import cl.bci.bciapi.mapper.AppUserMapper;
+import cl.bci.bciapi.mapper.dto.AppUserDTO;
+import cl.bci.bciapi.mapper.dto.AppUserFullDTO;
 import cl.bci.bciapi.repository.AppUserRepository;
 import cl.bci.bciapi.service.AppUserService;
 
@@ -46,6 +48,27 @@ public class AppUserController {
 
         AppUser  savedUser = appUserService.save(user);
         return new ResponseEntity<>(AppUserMapper.INSTANCE.toAppUserDTO(savedUser), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/users")
+    public ResponseEntity<?> getUsers() throws JsonProcessingException {
+        List<AppUser> users = userRepository.findAll();
+        List<AppUserFullDTO> userDTOs = AppUserMapper.INSTANCE.toAppUserFullDTOList(users);
+
+        if (userDTOs.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(userDTOs, HttpStatus.OK);
+    }
+
+    @GetMapping("/users/{id}")
+    public ResponseEntity<?> getUserById(@PathVariable UUID id) throws JsonProcessingException {
+        Optional<AppUser> user = userRepository.findById(id);
+        if (user.isPresent()) {
+            return new ResponseEntity<>(AppUserMapper.INSTANCE.toAppUserFullDTO(user.get()), HttpStatus.OK);
+        }else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
 }

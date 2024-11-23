@@ -16,3 +16,4 @@ public record AppUserDTO
              boolean isActive
         ) {
 }
+
