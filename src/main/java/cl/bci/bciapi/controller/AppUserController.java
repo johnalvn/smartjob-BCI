@@ -36,17 +36,18 @@ public class AppUserController {
     }
 
     @PostMapping("/users")
-    public ResponseEntity<?> registerUser( @RequestBody AppUser user) throws JsonProcessingException {
+    public ResponseEntity<?> registerUser(@RequestBody AppUser user) throws JsonProcessingException {
         if (userRepository.findByEmail(user.getEmail()).isPresent()) {
             return new ResponseEntity<>(Collections.singletonMap("mensaje", "El correo ya registrado"), HttpStatus.BAD_REQUEST);
         }
-
+        logger.info("Trying to save {}", objectMapper.writeValueAsString(user));
         List<String> error = userValidator.validate(user);
         if(!error.isEmpty()) {
             return new ResponseEntity<>(Collections.singletonMap("mensaje", String.join(",", error)), HttpStatus.BAD_REQUEST);
         }
 
         AppUser  savedUser = appUserService.save(user);
+        logger.info("User saved {}", savedUser.getId());
         return new ResponseEntity<>(AppUserMapper.INSTANCE.toAppUserDTO(savedUser), HttpStatus.CREATED);
     }
 

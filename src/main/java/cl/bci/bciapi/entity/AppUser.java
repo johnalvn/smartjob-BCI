@@ -25,16 +25,10 @@ public class AppUser {
 
     private String name;
 
-//    @Pattern(regexp = "[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\."
-//            + "[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*@"
-//            + "(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z0-9]"
-//            + "(?:[A-Za-z0-9-]*[A-Za-z0-9])?",
-//            message = "{invalid.email}")
     @Email(message = "Formato de correo inválido")
     @Column(unique = true)
     private String email;
 
-    //@Pattern(regexp = "${password.regex}", message = "Formato de contraseña inválido")
     private String password;
 
     @OneToMany(cascade = CascadeType.ALL)
